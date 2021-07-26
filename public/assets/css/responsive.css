@@ -1,0 +1,45 @@
+
+@media only screen and (min-width: 991px) {
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 991px){
+	.btn-search { padding: 1em; }
+
+    #navbar .brand-logo img { height: 58px; }
+	.nav-wrapper { display: flex;justify-content: center; }
+	.nav-wrapper .sidenav-trigger { margin-right: auto; }
+	#header-page .section-img img { width: 85%; }
+
+	#testimoni .row .decorate { left: -2em;top: 2em;height: 8em; }
+	#check_order .check_img { width: 75%; }
+	
+	#check_order #log_status .card-panel h5 { font-size: 1.6rem; }
+	#check_order #log_status .card-panel img { width: 5em; }
+
+	#testimonial_list .row .decorate { right: -3em;top: 7em;height: 8em; }
+
+	.modal.custom-small { width: 70vw; }
+    .modal.custom-big { width: 80vw; }
+}
+
+@media only screen and (max-width : 600px) {
+	.btn-search { padding: 1em; }
+	#navbar .brand-logo img { height: 50px;transition: 0.2s; }
+	.nav-wrapper { display: flex;justify-content: center; }
+	.nav-wrapper .sidenav-trigger { margin-right: auto; }
+
+	#header-page .section-img img { width: 100%; }
+
+	#destination .row .decorate { height: 9em; }
+	#testimoni .row .decorate { left: -3em;top: 3.5em;height: 7em; }
+	#check_order .check_img { width: 85%; }
+	#check_order .valid .card-panel .contain_status { padding: 0em 2em; }
+	#check_order #log_status .card-panel h5 { font-size: 1.45rem; }
+	#check_order #log_status .card-panel img { width: 5em; }
+
+	#testimonial_list .row .decorate { right: -3em;top: 7em;height: 7em; }
+
+	.modal.custom-small { width: 90vw; }
+    .modal.custom-big { width: 90vw; }
+}
