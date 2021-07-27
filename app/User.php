@@ -37,6 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function profilePicture()
+    {
+        if ($this->picture) {
+            return "/storage/{$this->picture}";
+        }
+
+        return 'http://i.pravatar.cc/200';
+    }
+
     public function testimonial(){
         return $this->hasMany(Testimonial::class);
     }

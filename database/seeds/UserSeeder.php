@@ -15,11 +15,9 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Aditya Prasetyo',
-            'username' => 'aditya',
             'email' => 'aditya@glitce.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('rahasia'), //secret password
-            'photo' => 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png',
+            'password' => bcrypt('12345678'), //secret password
             'remember_token' => Str::random(10),
         ]);
     }
