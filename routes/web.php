@@ -27,5 +27,9 @@ Route::get('/check-order', 'OrderController@index')->name('check-order');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', 'Admin\DashboardController@index')->name('home');
+    //Dashboard
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard');
+
+    //Ticket
+    Route::resource('ticket', 'Admin\TicketController');
 });

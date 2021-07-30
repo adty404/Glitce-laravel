@@ -6,8 +6,8 @@
 <script src="{{ asset('now') }}/js/plugins/moment.min.js"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="{{ asset('now') }}/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for Sweet Alert -->
-<script src="{{ asset('now') }}/js/plugins/sweetalert2.min.js"></script>
+{{-- <!--  Plugin for Sweet Alert -->
+<script src="{{ asset('now') }}/js/plugins/sweetalert2.min.js"></script> --}}
 <!-- Forms Validations Plugin -->
 <script src="{{ asset('now') }}/js/plugins/jquery.validate.min.js"></script>
 <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
@@ -28,8 +28,6 @@
 <script src="{{ asset('now') }}/js/plugins/jquery-jvectormap.js"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{ asset('now') }}/js/plugins/nouislider.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- Chart JS -->
 <script src="{{ asset('now') }}/js/plugins/chartjs.min.js"></script>
 <!--  Notifications Plugin    -->
@@ -37,7 +35,8 @@
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('now') }}/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script>
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-<script src="{{ asset('now') }}/demo/demo.js"></script>
+
+{{-- <script src="{{ asset('now') }}/demo/demo.js"></script>
 <script>
     $(document).ready(function () {
         // Javascript method's body can be found in assets/js/demos.js
@@ -46,4 +45,4 @@
         demo.initVectorMap();
 
     });
-</script>
+</script> --}}

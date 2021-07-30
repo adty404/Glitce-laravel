@@ -49,10 +49,16 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
             </div>
         </div>
         <ul class="nav">
-            <li class="active">
-                <a href="../examples/dashboard.html">
+            <li class="{{ (request()->is('dashboard*')) ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}">
                     <i class="now-ui-icons design_app"></i>
                     <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="{{ (request()->is('ticket*')) ? 'active' : '' }}">
+                <a href="{{ route('ticket.index') }}">
+                    <i class="fa fa-ticket-alt"></i>
+                    <p>Ticket</p>
                 </a>
             </li>
             <li>
