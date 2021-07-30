@@ -77,74 +77,21 @@ demo = {
   },
 
   initFullCalendar: function() {
-    $calendar = $('#fullCalendar');
+    var calendarEl = document.getElementById('fullCalendar');
+    var today = new Date();
+    var y = today.getFullYear();
+    var m = today.getMonth();
+    var d = today.getDate();
 
-    today = new Date();
-    y = today.getFullYear();
-    m = today.getMonth();
-    d = today.getDate();
-
-    $calendar.fullCalendar({
-      viewRender: function(view, element) {
-        // We make sure that we activate the perfect scrollbar when the view isn't on Month
-        if (view.name != 'month') {
-
-          var ps1 = new PerfectScrollbar('.fc-scroller');
-        }
-      },
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: ['interaction', 'dayGrid', 'timeGrid'],
+      defaultView: 'dayGridMonth',
       header: {
+        center: 'dayGridMonth,timeGridWeek,timeGridDay',
         left: 'title',
-        center: 'month,agendaWeek,agendaDay',
-        right: 'prev,next,today'
+        right: 'prev,next today'
       },
-      defaultDate: today,
       selectable: true,
-      selectHelper: true,
-      views: {
-        month: { // name of view
-          titleFormat: 'MMMM YYYY'
-          // other view-specific options here
-        },
-        week: {
-          titleFormat: " MMMM D YYYY"
-        },
-        day: {
-          titleFormat: 'D MMM, YYYY'
-        }
-      },
-
-      select: function(start, end) {
-
-        // on select we show the Sweet Alert modal with an input
-        Swal.fire({
-          title: 'Create an Event',
-          html: '<div class="form-group">' +
-            '<input class="form-control" placeholder="Event Title" id="input-field">' +
-            '</div>',
-          showCancelButton: true,
-          confirmButtonClass: 'btn btn-success',
-          cancelButtonClass: 'btn btn-danger',
-          buttonsStyling: false
-        }).then((result) => {
-          var eventData;
-          event_title = $('#input-field').val();
-
-          if (event_title) {
-            eventData = {
-              title: event_title,
-              start: start,
-              end: end
-            };
-            $calendar.fullCalendar('renderEvent', eventData, true); // stick? = true
-          }
-          $calendar.fullCalendar('unselect');
-        });
-      },
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
-
-
-      // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
       events: [{
           title: 'All Day Event',
           start: new Date(y, m, 1),
@@ -190,8 +137,32 @@ demo = {
           url: 'http://www.creative-tim.com/',
           className: 'event-orange'
         }
-      ]
+      ],
+      select: info => {
+        Swal.fire({
+          title: 'Create an Event',
+          html: '<div class="form-group">' +
+            '<input class="form-control" placeholder="Event Title" id="input-field">' +
+            '</div>',
+          showCancelButton: true,
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false
+        }).then((result) => {
+          let event_title = $('#input-field').val();
+
+          if (event_title) {
+            calendar.addEvent({
+              title: event_title,
+              start: info.startStr,
+              allDay: true
+            });
+          }
+        });
+      }
     });
+
+    calendar.render();
   },
 
   initDocChart: function() {

@@ -2778,7 +2778,9 @@ jvm.Map.prototype = {
         }
       }
       return this.setScale(
-        Math.min(this.width / bbox.width, this.height / bbox.height), -(bbox.x + bbox.width / 2), -(bbox.y + bbox.height / 2),
+        Math.min(this.width / bbox.width, this.height / bbox.height),
+        -(bbox.x + bbox.width / 2),
+        -(bbox.y + bbox.height / 2),
         true,
         config.animate
       );

@@ -204,7 +204,7 @@ justify-content: flex-end!important;
 
  table.dataTable{
 
-     .btn-simple.btn-icon{
+     [class*="btn-outline-"].btn-icon{
          padding: 3px;
      }
 
@@ -535,7 +535,7 @@ justify-content: flex-end!important;
  }
 
  @media all and (min-width: 520px) and (max-width: 730px){
-     table.dataTable .btn-simple.btn-icon{
+     table.dataTable [class*="btn-outline-"].btn-icon{
          display: block;
          margin: 0;
      }

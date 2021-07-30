@@ -407,7 +407,7 @@
     }
 
     .pagination .page-item.disabled > .page-link{
-      background-color: $opacity-2; 
+      background-color: $opacity-2;
       color: $white-color;
     }
 
@@ -544,7 +544,7 @@
 
 
     //buttons
-    .btn.btn-simple{
+    .btn[class*="btn-outline-"]{
         background-color: $transparent-bg;
         border-color: $opacity-5;
         color: $white-color;
