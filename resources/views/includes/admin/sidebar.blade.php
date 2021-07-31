@@ -61,6 +61,12 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                     <p>Ticket</p>
                 </a>
             </li>
+            <li class="{{ (request()->is('payment*')) ? 'active' : '' }}">
+                <a href="{{ route('payment.index') }}">
+                    <i class="fa fa-money-check-alt"></i>
+                    <p>Payment</p>
+                </a>
+            </li>
             <li>
                 <a data-toggle="collapse" href="#pagesExamples">
                     <i class="now-ui-icons design_image"></i>

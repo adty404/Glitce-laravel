@@ -6,8 +6,6 @@
 <script src="{{ asset('now') }}/js/plugins/moment.min.js"></script>
 <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
 <script src="{{ asset('now') }}/js/plugins/bootstrap-switch.js"></script>
-{{-- <!--  Plugin for Sweet Alert -->
-<script src="{{ asset('now') }}/js/plugins/sweetalert2.min.js"></script> --}}
 <!-- Forms Validations Plugin -->
 <script src="{{ asset('now') }}/js/plugins/jquery.validate.min.js"></script>
 <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->

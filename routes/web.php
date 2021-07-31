@@ -32,4 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Ticket
     Route::resource('ticket', 'Admin\TicketController');
+
+    //Payment
+    Route::resource('payment', 'Admin\PaymentController');
 });

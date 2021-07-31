@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\TicketRequest;
-use App\Http\Requests\Admin\TicketUpdateRequest;
-use App\Ticket;
+use App\Http\Requests\Admin\PaymentRequest;
+use App\Http\Requests\Admin\PaymentUpdateRequest;
+use App\Payment;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
-class TicketController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,16 +20,16 @@ class TicketController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = Ticket::query();
+            $query = Payment::query();
 
             return DataTables::of($query)
-            ->addColumn('aksi', 'pages.admin.ticket.action')
+            ->addColumn('aksi', 'pages.admin.payment.action')
             ->addIndexColumn()
             ->rawColumns(['aksi'])
             ->toJson();
         }
 
-        return view('pages.admin.ticket.index');
+        return view('pages.admin.payment.index');
     }
 
     /**
@@ -39,7 +39,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.ticket.create');
+        return view('pages.admin.payment.create');
     }
 
     /**
@@ -48,15 +48,15 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TicketRequest $request)
+    public function store(PaymentRequest $request)
     {
-        Ticket::create([
-            'price' => $request->price,
-            'info' => $request->info
+        Payment::create([
+            'payment' => $request->payment,
+            'number' => $request->number
         ]);
 
-        Alert::success('Success', 'Data Ticket Successfully Created');
-        return redirect()->route('ticket.index');
+        Alert::success('Success', 'Data Payment Successfully Created');
+        return redirect()->route('payment.index');
     }
 
     /**
@@ -78,10 +78,10 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        $ticket = Ticket::findOrFail($id);
+        $payment = Payment::findOrFail($id);
 
-        return view('pages.admin.ticket.edit', [
-            'ticket' => $ticket
+        return view('pages.admin.payment.edit', [
+            'payment' => $payment
         ]);
     }
 
@@ -92,14 +92,14 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TicketUpdateRequest $request, Ticket $ticket)
+    public function update(PaymentUpdateRequest $request, Payment $payment)
     {
         $data = $request->all();
 
-        $ticket->update($data);
+        $payment->update($data);
 
-        Alert::success('Success', 'Data Ticket Successfully Updated');
-        return redirect()->route('ticket.index');
+        Alert::success('Success', 'Data Payment Successfully Updated');
+        return redirect()->route('payment.index');
     }
 
     /**
@@ -108,10 +108,10 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ticket $ticket)
+    public function destroy(Payment $payment)
     {
-        $ticket->delete();
+        $payment->delete();
 
-        return redirect()->route('ticket.index');
+        return redirect()->route('payment.index');
     }
 }
