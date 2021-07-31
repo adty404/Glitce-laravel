@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\PaymentRequest;
-use App\Http\Requests\Admin\PaymentUpdateRequest;
+use App\Http\Requests\Admin\Payment\PaymentRequest;
+use App\Http\Requests\Admin\Payment\PaymentUpdateRequest;
 use App\Payment;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -50,10 +50,9 @@ class PaymentController extends Controller
      */
     public function store(PaymentRequest $request)
     {
-        Payment::create([
-            'payment' => $request->payment,
-            'number' => $request->number
-        ]);
+        $data = $request->all();
+
+        Payment::create($data);
 
         Alert::success('Success', 'Data Payment Successfully Created');
         return redirect()->route('payment.index');

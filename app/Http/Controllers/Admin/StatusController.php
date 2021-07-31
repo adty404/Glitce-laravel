@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StatusRequest;
-use App\Http\Requests\Admin\StatusUpdateRequest;
+use App\Http\Requests\Admin\Status\StatusRequest;
+use App\Http\Requests\Admin\Status\StatusUpdateRequest;
 use App\Status;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -50,9 +50,9 @@ class StatusController extends Controller
      */
     public function store(StatusRequest $request)
     {
-        Status::create([
-            'status' => $request->status
-        ]);
+        $data = $request->all();
+
+        Status::create($data);
 
         Alert::success('Success', 'Data Status Successfully Created');
         return redirect()->route('status.index');

@@ -31,7 +31,7 @@ Ticket
                                     <th>No</th>
                                     <th>Price</th>
                                     <th>Info</th>
-                                    <th>Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>

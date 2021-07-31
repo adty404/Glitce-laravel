@@ -38,4 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Status
     Route::resource('status', 'Admin\StatusController');
+
+    //Destination
+    Route::resource('destination', 'Admin\DestinationController');
 });

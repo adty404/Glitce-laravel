@@ -73,6 +73,12 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                     <p>Status</p>
                 </a>
             </li>
+            <li class="{{ (request()->is('destination*')) ? 'active' : '' }}">
+                <a href="{{ route('destination.index') }}">
+                    <i class="fa fa-map-pin"></i>
+                    <p>Destination</p>
+                </a>
+            </li>
             <li>
                 <a data-toggle="collapse" href="#pagesExamples">
                     <i class="now-ui-icons design_image"></i>

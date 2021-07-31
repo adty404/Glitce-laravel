@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\TicketRequest;
-use App\Http\Requests\Admin\TicketUpdateRequest;
+use App\Http\Requests\Admin\Ticket\TicketRequest;
+use App\Http\Requests\Admin\Ticket\TicketUpdateRequest;
 use App\Ticket;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -50,10 +50,9 @@ class TicketController extends Controller
      */
     public function store(TicketRequest $request)
     {
-        Ticket::create([
-            'price' => $request->price,
-            'info' => $request->info
-        ]);
+        $data = $request->all();
+
+        Ticket::create($data);
 
         Alert::success('Success', 'Data Ticket Successfully Created');
         return redirect()->route('ticket.index');

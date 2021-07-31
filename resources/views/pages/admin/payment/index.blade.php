@@ -31,7 +31,7 @@ Payment
                                     <th>No</th>
                                     <th>Payment</th>
                                     <th>Number</th>
-                                    <th>Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>

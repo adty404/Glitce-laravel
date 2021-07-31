@@ -30,7 +30,7 @@ Status
                                 <tr>
                                     <th>No</th>
                                     <th>Status</th>
-                                    <th>Aksi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>

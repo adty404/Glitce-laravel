@@ -18,7 +18,7 @@ class CreateDestinationTable extends Migration
             $table->unsignedBigInteger('ticket_id');
             // $table->unsignedBigInteger('testimonial_id');
             $table->string('name');
-            $table->string('counry');
+            $table->string('country');
             $table->string('location');
             $table->string('description');
             $table->string('photo');
