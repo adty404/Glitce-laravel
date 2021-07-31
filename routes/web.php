@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/destination', 'DestinationController@index')->name('destination');
-Route::get('/destination/detail', 'DestinationController@detail')->name('destination-detail');
+Route::get('/destination-front', 'DestinationController@index')->name('destination');
+Route::get('/destination/{slug}', 'DestinationController@detail')->name('destination-detail');
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/testimonial', 'TestimonialController@index')->name('testimonial');
 Route::get('/check-order', 'OrderController@index')->name('check-order');

@@ -85,7 +85,7 @@ Edit Destination
                                     <span class="btn btn-rose btn-round btn-file">
                                         <span class="fileinput-new">Select image</span>
                                         <span class="fileinput-exists">Change</span>
-                                        <input type="file" name="photo" required />
+                                        <input type="file" name="photo" />
                                         @error('photo')
                                         <span class="help-block">{{ $message }}</span>
                                         @enderror

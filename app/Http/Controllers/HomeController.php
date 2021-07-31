@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Destination;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,6 +13,11 @@ class HomeController extends Controller
      * @return void
      */
     public function index(){
-        return view('pages.index');
+
+        // $destination = Destination::with('ticket');
+
+        return view('pages.index', [
+            'destination' => Destination::with('ticket')->get()
+        ]);
     }
 }

@@ -7,7 +7,7 @@
 
             <ul id="nav-mobile" class="right hide-on-med-and-down menu_" style="margin-top: 0.3em;">
                 <li class="{{ request()->is('/') ? 'activated' : '' }}"><a href="{{ route('home') }}">Home</a></li>
-                <li class="{{ request()->is('destination') ? 'activated' : '' }}"><a href="{{ route('destination') }}">Destination</a></li>
+                <li class="{{ request()->is('destination-front*') ? 'activated' : '' }}"><a href="{{ route('destination') }}">Destination</a></li>
                 <li class="{{ request()->is('about') ? 'activated' : '' }}"><a href="{{ route('about') }}">About</a></li>
                 <li class="btn_nav"><a href="{{ route('check-order') }}" class="waves-effect waves-light btn-glitche">Check
                         Order</a></li>

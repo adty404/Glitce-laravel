@@ -15,13 +15,13 @@ Global Visit Choice Web
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h1 class="header col s12">Mount Fuji</h1>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h1 class="header col s12">{{ $destination->name }}</h1>
+                    {{-- <p>Lorem ipsum dolor sit amet.</p> --}}
                     <a href="#" class="breadcrumb_ white-text">Home</a>
                     <span class="breadcrumb_ text-main-color-3 font-bold"> <i class="material-icons"
                             style="position: relative;top: .25em;">chevron_right</i> <a href="#"
                             class="white-text">Destination</a> <i class="material-icons"
-                            style="position: relative;top: .25em;">chevron_right</i> Mount Fuji</span>
+                            style="position: relative;top: .25em;">chevron_right</i>{{ $destination->name }}</span>
                 </div>
             </div>
         </div>
@@ -37,11 +37,11 @@ Global Visit Choice Web
             <div class="col s12" style="padding: 0;">
                 <div class="row" style="margin-bottom: 0;padding: 2em 0;">
                     <div class="col s12 m7 l9" style="padding: 0;">
-                        <h3 class="font-bold text-main-color-3" style="margin: 0;">Mount Fuji</h3>
+                        <h3 class="font-bold text-main-color-3" style="margin: 0;">{{ $destination->name }}</h3>
                         <p class="d-flex" style="align-items: center;margin-top: .75em;">
                             <i class="material-icons text-main-color-2">place</i>
                             <span class="address_destination text-main-color-2">
-                                Japan, Tokyo City, District AB No. 100
+                                {{ $destination->country }}, {{ $destination->location }}
                             </span>
                         </p>
                     </div>
@@ -51,128 +51,8 @@ Global Visit Choice Web
                     </div>
                     <div class="col s12" style="padding: 0;">
                         <p class="desc_destination text-main-color-3" style="margin: 0;">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus maiores, necessitatibus
-                            corrupti a reprehenderit eveniet voluptatum qui, id delectus alias tenetur libero iste quos?
-                            Ratione neque reprehenderit non eveniet officia.
-                            Voluptas perspiciatis consequatur, vero labore architecto iste nostrum, eius minus sint
-                            facilis corporis alias iusto? Quia pariatur illo maiores repudiandae sint deleniti
-                            repellendus quidem harum! Doloribus quisquam ex facilis repellendus.
-                            Laborum modi est corporis, repellendus repudiandae quis obcaecati recusandae veniam, eaque,
-                            cupiditate vel delectus molestias voluptate odit saepe aliquam? Fugiat laudantium ipsum
-                            consectetur nisi, est deleniti maxime animi dolor iusto.
+                            {{ $destination->description }}
                         </p>
-                    </div>
-                    <div class="col s12" style="padding: 0;margin: 1em 0;">
-                        <div class="carousel-wrap">
-                            <div class="owl-carousel gallery_destination">
-                                <div class="item">
-                                    <div class="card">
-                                        <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator responsive-img" src="{{ url('') }}/assets/img/bg_dummy.svg">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4">
-                                                <span class="font-bold text-main-color-1">Mount Fuji</span>
-                                                <i class="material-icons right">more_vert</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Quam veniam maiores aliquam dolorem corrupti illo
-                                                    dignissimos excepturi molestiae quibusdam atque corporis alias ipsam
-                                                    necessitatibus minima obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                        <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">
-                                                <a href="#" class="font-bold text-main-color-1">Mount Fuji</a>
-                                                <i class="material-icons right">close</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-                                                    veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima
-                                                    obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card">
-                                        <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator responsive-img" src="{{ url('') }}/assets/img/exmaple.jpg">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4">
-                                                <span class="font-bold text-main-color-1">Mount Fuji</span>
-                                                <i class="material-icons right">more_vert</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Quam veniam maiores aliquam dolorem corrupti illo
-                                                    dignissimos excepturi molestiae quibusdam atque corporis alias ipsam
-                                                    necessitatibus minima obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                        <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">
-                                                <a href="#" class="font-bold text-main-color-1">Mount Fuji</a>
-                                                <i class="material-icons right">close</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-                                                    veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima
-                                                    obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card">
-                                        <div class="card-image waves-effect waves-block waves-light">
-                                            <img class="activator responsive-img" src="{{ url('') }}/assets/img/no_image.jpg">
-                                        </div>
-                                        <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4">
-                                                <span class="font-bold text-main-color-1">Mount Fuji</span>
-                                                <i class="material-icons right">more_vert</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Quam veniam maiores aliquam dolorem corrupti illo
-                                                    dignissimos excepturi molestiae quibusdam atque corporis alias ipsam
-                                                    necessitatibus minima obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                        <div class="card-reveal">
-                                            <span class="card-title grey-text text-darken-4">
-                                                <a href="#" class="font-bold text-main-color-1">Mount Fuji</a>
-                                                <i class="material-icons right">close</i>
-                                            </span>
-                                            <p>
-                                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-                                                    veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima
-                                                    obcaecati dolor quae, eveniet rem!</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12" style="padding: 0;">
-                        <div class="card-panel place">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13015.194724953482!2d138.7186086288648!3d35.3606421836835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6019629a42fdc899%3A0xa6a1fcc916f3a4df!2sGn.%20Fuji!5e0!3m2!1sid!2sid!4v1622100157363!5m2!1sid!2sid"
-                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -187,14 +67,14 @@ Global Visit Choice Web
                         <i class="material-icons large white-text" style="margin-right: .25em;">business_center</i>
                         <span class="white-text align-self-center">
                             <span>Price Ticket</span>
-                            <h5 class="font-bold" style="margin: 0;">Rp 15.000.000</h5>
+                            <h5 class="font-bold" style="margin: 0;">{{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</h5>
                         </span>
                     </div>
                     <div class="col s12 m6 l6 d-flex justify-center" style="margin: 1em 0;">
                         <i class="material-icons large white-text" style="margin-right: .25em;">shopping_bag</i>
                         <span class="white-text align-self-center">
                             <span>Include for every ticket</span>
-                            <h5 class="font-bold" style="margin: 0;">Backpack, T-Shirt</h5>
+                            <h5 class="font-bold" style="margin: 0;">{{ $destination->ticket->info }}</h5>
                         </span>
                     </div>
                     <div class="col s12" style="margin: 2em 0;">
@@ -292,9 +172,9 @@ Global Visit Choice Web
                                 Destination Package
                             </span>
                             <p class="font-bold white-text" style="margin: 0;">
-                                <span>Mount Fuji</span> -
-                                <span>Rp 15.000.000</span> -
-                                <span>Include (Backpack, T-Shirt)</span>
+                                <span>{{ $destination->name }}</span> -
+                                <span>{{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</span> -
+                                <span>{{ $destination->ticket->info }}</span>
                             </p>
                         </div>
                     </div>

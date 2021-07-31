@@ -53,161 +53,64 @@ Global Visit Choice Web
                 <p class="text-main-color-3">View more to see another awesome destination!</p>
             </div>
             <div class="row" style="margin-bottom: 0;">
+
+                @forelse ($destination as $d)
+                
                 <div class="col s12 m6 l4">
                     <div class="card">
+                        
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator responsive-img" src="/assets/img/bg_dummy.svg">
+                            <img class="activator responsive-img" src="{{ Storage::url($d->photo) }}">
                         </div>
+
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
+                                <a href="#" class="font-bold text-main-color-1"> {{ $d->name }} </a>
                                 <i class="material-icons right">more_vert</i>
                             </span>
                             <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quam veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima obcaecati
-                                    dolor quae, eveniet rem!</span>
+                                <span class="font-bold text-main-color-2">{{ $d->country }}, {{ $d->location }}</span><br>
+                                <span class="truncate"> {{ $d->description }} </span>
                             </p>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
+                            <a href="{{ route('destination-detail', $d->slug) }}" class="btn-glitche waves-effect waves-light">Buy
                                 Ticket</a>
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
+                                <a href="#" class="font-bold text-main-color-1"> {{ $d->name }} </a>
                                 <i class="material-icons right">close</i>
                             </span>
                             <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam veniam maiores
-                                    aliquam dolorem corrupti illo dignissimos excepturi molestiae quibusdam atque
-                                    corporis alias ipsam necessitatibus minima obcaecati dolor quae, eveniet
-                                    rem!</span>
+                                <span class="font-bold text-main-color-2">{{ $d->country }}, {{ $d->location }}</span><br>
+                                <span> {{ $d->description }} </span>
                             </p>
                             <table class="striped">
                                 <tr>
                                     <th>Price</th>
                                     <td>:</td>
-                                    <td>Rp 15.000.000 x Ticket</td>
+                                    <td>{{ \App\Utilities\Helpers::formatCurrency($d->ticket->price, 'Rp.') }} x Ticket</td>
                                 </tr>
                                 <tr>
                                     <th>Include</th>
                                     <td>:</td>
-                                    <td>Backpack + T-Shirt</td>
+                                    <td>{{ $d->ticket->info }}</td>
                                 </tr>
                             </table>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
+                            <a href="{{ route('destination-detail', $d->slug) }}" class="btn-glitche waves-effect waves-light">Buy
                                 Ticket</a>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator responsive-img" src="/assets/img/bg_dummy.svg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
-                                <i class="material-icons right">more_vert</i>
-                            </span>
-                            <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quam veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima obcaecati
-                                    dolor quae, eveniet rem!</span>
-                            </p>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
-                                Ticket</a>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
-                                <i class="material-icons right">close</i>
-                            </span>
-                            <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam veniam maiores
-                                    aliquam dolorem corrupti illo dignissimos excepturi molestiae quibusdam atque
-                                    corporis alias ipsam necessitatibus minima obcaecati dolor quae, eveniet
-                                    rem!</span>
-                            </p>
-                            <table class="striped">
-                                <tr>
-                                    <th>Price</th>
-                                    <td>:</td>
-                                    <td>Rp 15.000.000 x Ticket</td>
-                                </tr>
-                                <tr>
-                                    <th>Include</th>
-                                    <td>:</td>
-                                    <td>Backpack + T-Shirt</td>
-                                </tr>
-                            </table>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
-                                Ticket</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m6 l4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator responsive-img" src="/assets/img/bg_dummy.svg">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
-                                <i class="material-icons right">more_vert</i>
-                            </span>
-                            <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span class="truncate">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quam veniam maiores aliquam dolorem corrupti illo dignissimos excepturi
-                                    molestiae quibusdam atque corporis alias ipsam necessitatibus minima obcaecati
-                                    dolor quae, eveniet rem!</span>
-                            </p>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
-                                Ticket</a>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">
-                                <a href="#" class="font-bold text-main-color-1">Mount
-                                    Fuji</a>
-                                <i class="material-icons right">close</i>
-                            </span>
-                            <p>
-                                <span class="font-bold text-main-color-2">Japan, Tokyo</span><br>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam veniam maiores
-                                    aliquam dolorem corrupti illo dignissimos excepturi molestiae quibusdam atque
-                                    corporis alias ipsam necessitatibus minima obcaecati dolor quae, eveniet
-                                    rem!</span>
-                            </p>
-                            <table class="striped">
-                                <tr>
-                                    <th>Price</th>
-                                    <td>:</td>
-                                    <td>Rp 15.000.000 x Ticket</td>
-                                </tr>
-                                <tr>
-                                    <th>Include</th>
-                                    <td>:</td>
-                                    <td>Backpack + T-Shirt</td>
-                                </tr>
-                            </table>
-                            <a href="#" class="btn-glitche waves-effect waves-light">Buy
-                                Ticket</a>
-                        </div>
-                    </div>
-                </div>
+                
+                @empty
+                
+                No data..
+                
+                @endforelse
+
                 <div class="col s12 d-flex justify-center" style="margin: 1em 0 1.5em 0;">
-                    <a href="{{ route('destination') }}" class="viewmore main-color-2 btn-glitche waves-effect waves-light">View
+                    <a href="{{ route('destination') }}"
+                        class="viewmore main-color-2 btn-glitche waves-effect waves-light">View
                         More Destination</a>
                 </div>
             </div>
@@ -265,46 +168,12 @@ Global Visit Choice Web
                                 </a>
                             </div>
                         </div>
-                        <div class="col s12">
-                            <div class="card" id="quotes">
-                                <div class="card-content" style="padding-bottom: 0;">
-                                    <div class="row" style="margin-bottom: 0;">
-                                        <div class="col s2 d-flex justify-center" style="flex-direction: column;">
-                                            <div class="circle-img align-self-center">
-                                                <img src="/assets/img/avatar.jpg" alt="avatar">
-                                            </div>
-                                        </div>
-                                        <div class="col s10">
-                                            <span class="blue-grey-text text-darken-3 quote">
-                                                “Glitce provide a high level of service and show great flexibility
-                                                when it comes to changing travel plans. They also try to find cost
-                                                savings for their clients. Thank you so much!”
-                                            </span>
-                                        </div>
-                                        <div class="col s12" style="margin-top: 1em">
-                                            <div class="row" style="margin-bottom: 0;">
-                                                <span class="col s6 font-bold blue-grey-text text-darken-3">
-                                                    Muhamad Fajri
-                                                </span>
-                                                <span class="col s6 blue-grey-text text-darken-2 right-align">
-                                                    April 23rd, 2021
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn-quote font-bold">
-                                    <span>Mount Fuji</span>
-                                    <span class="right d-flex justify-center">See <span
-                                            class="material-icons small">chevron_right</span></span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="col s12 d-flex justify-center" style="margin: 1em 0 3em 0;">
-                <a href="{{ route('testimonial') }}" class="viewmore main-color-2 btn-glitche waves-effect waves-light">See
+                <a href="{{ route('testimonial') }}"
+                    class="viewmore main-color-2 btn-glitche waves-effect waves-light">See
                     All Testimonial</a>
             </div>
         </div>

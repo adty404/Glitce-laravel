@@ -26,6 +26,7 @@ class DestinationRequest extends FormRequest
         return [
             'ticket_id' => 'required',
             'name' => 'required|string|max:255',
+            // slug
             'country' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'description' => 'required|string|min:50',

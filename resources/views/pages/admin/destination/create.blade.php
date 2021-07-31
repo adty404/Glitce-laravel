@@ -82,14 +82,15 @@ Create Destination
                                         <span class="fileinput-new">Select image</span>
                                         <span class="fileinput-exists">Change</span>
                                         <input type="file" name="photo" required />
-                                        @error('photo')
-                                        <span class="help-block">{{ $message }}</span>
-                                        @enderror
+                                        
                                     </span>
                                     <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
                                         data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
                                 </div>
                             </div>
+                            @error('photo')
+                                <span class="help-block">{{ $message }}</span>
+                            @enderror
                         </div>
                 </div>
                 <div class="card-footer ">

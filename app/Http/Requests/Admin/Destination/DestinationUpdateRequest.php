@@ -26,10 +26,11 @@ class DestinationUpdateRequest extends FormRequest
         return [
             'ticket_id' => 'required',
             'name' => 'required|string|max:255',
+            // slug
             'country' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'description' => 'required|string|min:50',
-            'photo' => 'required|image|mimes:jpeg,jpg,png'
+            'photo' => 'nullable|image|mimes:jpeg,jpg,png'
         ];
     }
 }

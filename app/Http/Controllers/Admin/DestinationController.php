@@ -66,6 +66,7 @@ class DestinationController extends Controller
     {
         $data = $request->all();
 
+        $data['slug'] = Str::slug($request->name);
         $data['photo'] = $request->file('photo')->store('assets/destination', 'public');
 
         Destination::create($data);
@@ -112,7 +113,15 @@ class DestinationController extends Controller
     {
         $data = $request->all();
 
-        $data['photo'] = $request->file('photo')->store('assets/destination', 'public');
+        if($request->hasFile('photo') && $request->has('photo')){
+            $photo = $request->file('photo')->store('assets/destination', 'public');
+        }else{
+            $photo = $destination->photo;
+        }
+
+        $data['slug'] = Str::slug($request->name);
+        $data['photo'] = $photo;
+        // $data['photo'] = $request->file('photo')->store('assets/destination', 'public');
 
         $destination->update($data);
 
