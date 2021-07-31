@@ -35,4 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Payment
     Route::resource('payment', 'Admin\PaymentController');
+
+    //Status
+    Route::resource('status', 'Admin\StatusController');
 });

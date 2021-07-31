@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('title')
-Ticket
+Status
 @endsection
 
 @section('page')
-Ticket
+Status
 @endsection
 
 @section('content')
@@ -15,13 +15,13 @@ Ticket
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('ticket.create') }}">
+                    <a href="{{ route('status.create') }}">
                         <button type="button" class="btn btn-primary" style="float: right;">
                             <i class="fa fa-plus"></i>
                             Add Data
                         </button>
                     </a>
-                    <h4 class="card-title"> Data Ticket </h4>
+                    <h4 class="card-title"> Data Status </h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -29,8 +29,7 @@ Ticket
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Price</th>
-                                    <th>Info</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -65,12 +64,8 @@ Ticket
                 searchable : false
             },
             {
-                data: 'price',
-                name: 'price'
-            },
-            {
-                data: 'info',
-                name: 'info'
+                data: 'status',
+                name: 'status'
             },
             {
                 data: 'aksi',

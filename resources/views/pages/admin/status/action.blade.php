@@ -1,0 +1,1 @@
+<a href="{{ route('status.edit', $model) }}" class="btn btn-warning btn-sm">Edit</a>

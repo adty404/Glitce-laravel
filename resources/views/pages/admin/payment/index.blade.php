@@ -62,7 +62,8 @@ Payment
         columns: [{ 
                 data: 'DT_RowIndex', 
                 orderable: false, 
-                searchable : false},
+                searchable : false
+            },
             {
                 data: 'payment',
                 name: 'payment'
