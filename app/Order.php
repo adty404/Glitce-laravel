@@ -30,4 +30,8 @@ class Order extends Model
     public function status(){
         return $this->belongsTo(Status::class);
     }
+
+    public function testimonial(){
+        return $this->hasOne(Testimonial::class);
+    }
 }

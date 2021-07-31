@@ -15,7 +15,7 @@ class CreateTestimonialTable extends Migration
     {
         Schema::create('testimonial', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('destination_id');
             $table->string('testimonial');
             $table->string('date');

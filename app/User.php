@@ -45,8 +45,4 @@ class User extends Authenticatable
 
         return 'http://i.pravatar.cc/200';
     }
-
-    public function testimonial(){
-        return $this->hasMany(Testimonial::class);
-    }
 }
