@@ -67,7 +67,8 @@ Global Visit Choice Web
                         <i class="material-icons large white-text" style="margin-right: .25em;">business_center</i>
                         <span class="white-text align-self-center">
                             <span>Price Ticket</span>
-                            <h5 class="font-bold" style="margin: 0;">{{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</h5>
+                            <h5 class="font-bold" style="margin: 0;">
+                                {{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</h5>
                         </span>
                     </div>
                     <div class="col s12 m6 l6 d-flex justify-center" style="margin: 1em 0;">
@@ -162,7 +163,8 @@ Global Visit Choice Web
             Ticket</span>
         <a class="modal-close waves-effect waves-light btn-flat"><i class="material-icons white-text">close</i></a>
     </div>
-    <form id="buyticket-form" enctype="multipart/form-data" novalidate="novalidate">
+    <form action="{{ route('order.create') }}" method="post" id="buyticket-form" enctype="multipart/form-data" autocomplete="off">
+        @csrf
         <div class="modal-content" style="padding-top: 0;">
             <div class="row no-margin">
                 <div class="col s12">
@@ -173,7 +175,8 @@ Global Visit Choice Web
                             </span>
                             <p class="font-bold white-text" style="margin: 0;">
                                 <span>{{ $destination->name }}</span> -
-                                <span>{{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</span> -
+                                <span>{{ \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.') }}</span>
+                                -
                                 <span>{{ $destination->ticket->info }}</span>
                             </p>
                         </div>
@@ -185,51 +188,52 @@ Global Visit Choice Web
                             <span class="card-title" style="margin-bottom: 1em">
                                 Your Identity
                             </span>
+                            <input type="hidden" name="destination_id" value="{{ $destination->id }}">
                             <div class="row no-margin no-padding">
-                                <div class="input-field col s12" style="margin: 0 0 1em 0;">
+                                <div class="input-field col s12 @error('name') has-error @enderror" style="margin: 0 0 1em 0;">
                                     <i class="material-icons prefix">person</i>
-                                    <input id="namebuy-ticket" name="namebuy-ticket" type="text" class="validate"
-                                        required>
-                                    <label for="namebuy-ticket">Full Name</label>
+                                    <input id="name" name="name" type="text" value="{{ old('name') }}" required>
+                                    <label for="name">Full Name</label>
+                                    @error('name')
+                                    <span class="help-block">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                <div class="input-field col s12" style="margin: 0 0 1em 0;">
+                                <div class="input-field col s12 @error('id_card') has-error @enderror" style="margin: 0 0 1em 0;">
                                     <i class="material-icons prefix">admin_panel_settings</i>
-                                    <input id="identitybuy-ticket" name="identitybuy-ticket" type="text"
-                                        class="validate" required>
-                                    <label for="identitybuy-ticket">Identity Number</label>
+                                    <input id="id_card" name="id_card" type="number" value="{{ old('id_card') }}" required>
+                                    <label for="id_card">Identity Number</label>
+                                    @error('id_card')
+                                    <span class="help-block">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                <div class="input-field col s12 no-margin">
+                                <div class="input-field col s12 @error('email') has-error @enderror no-margin">
                                     <i class="material-icons prefix">email</i>
-                                    <input id="emailbuy-ticket" name="emailbuy-ticket" type="email" class="validate"
-                                        required>
-                                    <label for="emailbuy-ticket">Email</label>
+                                    <input id="email" name="email" type="email"
+                                        value="{{ old('email') }}" required>
+                                    <label for="email">Email</label>
+                                    @error('email')
+                                    <span class="help-block">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12">
-                    <div class="card white">
-                        <div class="card-content blue-grey-text text-darken-4">
-                            <span class="card-title" style="margin-bottom: 1em">
-                                Your ID Card
-                            </span>
-                            <div class="row no-margin no-padding">
-                                <div class="col s12">
-                                    <img src="{{ url('') }}/assets/img/no_image.jpg" alt="preview_thumbnail" class="responsive-img"
-                                        id="imageprevBuyTicket">
+                                <div class="input-field col s12 @error('payment_id') has-error @enderror">
+                                    <i class="material-icons prefix">payment</i>
+                                    <select name="payment_id" id="" class="form-control select2">
+                                        @foreach ($payments as $payment)
+                                        <option value="{{ $payment->id }}">{{ $payment->payment }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('payment_id')
+                                    <span class="help-block">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                <div class="file-field input-field col s12">
-                                    <div class="waves-effect waves-light btn z-depth-custom orange darken-1">
-                                        <span>ID CARD</span>
-                                        <input type="file" name="buy-ticket" accept="image/png,image/svg+xml"
-                                            id="buy-ticket"
-                                            onchange="previewImage('#buy-ticket', '#imageprevBuy-ticket')">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" name="pathBuy-ticket"
-                                            id="pathBuy-ticket" readonly>
-                                    </div>
+                                <div class="input-field col s12 @error('phone_number') has-error @enderror" style="margin: 0 0 1em 0;">
+                                    <i class="material-icons prefix">settings_phone</i>
+                                    <input id="phone_number" name="phone_number" type="number"
+                                        value="{{ old('phone_number') }}" required>
+                                    <label for="phone_number">Phone Number</label>
+                                    @error('phone_number')
+                                    <span class="help-block">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

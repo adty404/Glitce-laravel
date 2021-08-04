@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Destination;
+use App\Payment;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -18,10 +19,10 @@ class DestinationController extends Controller
     // }
 
     public function detail($slug){
-        $destination = Destination::with('ticket')->where('slug', $slug)->first();
 
         return view('pages.destination-detail', [
-            'destination' => $destination
+            'destination' => Destination::with('ticket')->where('slug', $slug)->first(),
+            'payments' => Payment::all()
         ]);
     }
 }
