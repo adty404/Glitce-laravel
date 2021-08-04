@@ -15,8 +15,8 @@ class Order extends Model
 
     protected $hidden = [];
 
-    public function ticket(){
-        return $this->belongsTo(Ticket::class);
+    public function destination(){
+        return $this->belongsTo(Destination::class);
     }
 
     public function payment(){

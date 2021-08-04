@@ -19,6 +19,10 @@ class Destination extends Model
         return $this->belongsTo(Ticket::class);
     }
 
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
+
     public function testimonial(){
         return $this->hasMany(Testimonial::class);
     }

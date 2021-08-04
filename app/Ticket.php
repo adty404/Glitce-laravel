@@ -15,10 +15,6 @@ class Ticket extends Model
 
     protected $hidden = [];
 
-    public function order(){
-        return $this->hasMany(Order::class);
-    }
-
     public function destination(){
         return $this->hasOne(Destination::class);
     }
