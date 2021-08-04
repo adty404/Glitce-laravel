@@ -5,7 +5,7 @@ Dashboard Glitce
 @endsection
 
 @section('page')
-    Dashboard
+Dashboard
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Dashboard Glitce
                                     <div class="icon icon-primary">
                                         <i class="fa fa-shopping-basket"></i>
                                     </div>
-                                    <h3 class="info-title">859</h3>
+                                    <h3 class="info-title">{{ $order_placed }}</h3>
                                     <h6 class="stats-title">Order Placed</h6>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@ Dashboard Glitce
                                     <div class="icon icon-success">
                                         <i class="fa fa-money-check"></i>
                                     </div>
-                                    <h3 class="info-title"><small>$</small>3,521</h3>
+                                    <h3 class="info-title">{{ $payment_slip_request }}</h3>
                                     <h6 class="stats-title">Payment Slip Request</h6>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@ Dashboard Glitce
                                     <div class="icon icon-info">
                                         <i class="fa fa-check"></i>
                                     </div>
-                                    <h3 class="info-title">562</h3>
+                                    <h3 class="info-title">{{ $payment_verified }}</h3>
                                     <h6 class="stats-title">Payment Verified</h6>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@ Dashboard Glitce
                                     <div class="icon icon-danger">
                                         <i class="fa fa-check-double"></i>
                                     </div>
-                                    <h3 class="info-title">353</h3>
+                                    <h3 class="info-title">{{ $total_order }}</h3>
                                     <h6 class="stats-title">Total Order</h6>
                                 </div>
                             </div>
@@ -71,127 +71,64 @@ Dashboard Glitce
                     <h4 class="card-title"> Recent Order Placed </h4>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class=" text-primary">
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Country
-                          </th>
-                          <th>
-                            City
-                          </th>
-                          <th class="text-right">
-                            Salary
-                          </th>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              Dakota Rice
-                            </td>
-                            <td>
-                              Niger
-                            </td>
-                            <td>
-                              Oud-Turnhout
-                            </td>
-                            <td class="text-right">
-                              $36,738
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Minerva Hooper
-                            </td>
-                            <td>
-                              Curaçao
-                            </td>
-                            <td>
-                              Sinaai-Waas
-                            </td>
-                            <td class="text-right">
-                              $23,789
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Sage Rodriguez
-                            </td>
-                            <td>
-                              Netherlands
-                            </td>
-                            <td>
-                              Baileux
-                            </td>
-                            <td class="text-right">
-                              $56,142
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Philip Chaney
-                            </td>
-                            <td>
-                              Korea, South
-                            </td>
-                            <td>
-                              Overland Park
-                            </td>
-                            <td class="text-right">
-                              $38,735
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Doris Greene
-                            </td>
-                            <td>
-                              Malawi
-                            </td>
-                            <td>
-                              Feldkirchen in Kärnten
-                            </td>
-                            <td class="text-right">
-                              $63,542
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Mason Porter
-                            </td>
-                            <td>
-                              Chile
-                            </td>
-                            <td>
-                              Gloucester
-                            </td>
-                            <td class="text-right">
-                              $78,615
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              Jon Porter
-                            </td>
-                            <td>
-                              Portugal
-                            </td>
-                            <td>
-                              Gloucester
-                            </td>
-                            <td class="text-right">
-                              $98,615
-                            </td>
-                          </tr>
-                        </tbody>
+                  <div class="table-responsive">
+                      <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                          <thead>
+                              <tr>
+                                  <th>No</th>
+                                  <th>Order Number</th>
+                                  <th>Name</th>
+                                  <th>ID Number</th>
+                                  <th>Email</th>
+                                  <th>Phone Number</th>
+                              </tr>
+                          </thead>
+                          <tbody></tbody>
                       </table>
-                    </div>
                   </div>
+              </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('addon-script')
+<script>
+    // AJAX DataTable
+    var datatable = $('#crudTable').DataTable({
+        processing: true,
+        serverSide: true,
+        ordering: true,
+        ajax: {
+            url: '{!! url()->current() !!}',
+        },
+        columns: [{ 
+                data: 'DT_RowIndex', 
+                orderable: false, 
+                searchable : false
+            },
+            {
+                data: 'order_number',
+                name: 'order_number'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'id_card',
+                name: 'id_card',
+            },
+            {
+                data: 'email',
+                name: 'email',
+            },
+            {
+                data: 'phone_number',
+                name: 'phone_number',
+            }
+        ]
+    });
+</script>
+@endpush
