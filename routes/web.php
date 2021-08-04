@@ -25,7 +25,7 @@ Route::get('/testimonial', 'TestimonialController@index')->name('testimonial');
 Route::get('/check-order', 'OrderController@index')->name('check-order');
 
 Route::post('/order', 'OrderController@createOrder')->name('order.create');
-Route::get('/order/{order_number}', 'OrderController@orderSuccess')->name('order.success');
+Route::get('/order/success/{order_number}', 'OrderController@orderSuccess')->name('order.success');
 
 Auth::routes();
 
@@ -44,4 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Destination
     Route::resource('destination', 'Admin\DestinationController');
+
+    //Order
+    Route::get('order/placed', 'Admin\OrderController@orderPlaced')->name('admin.order.placed');
 });
