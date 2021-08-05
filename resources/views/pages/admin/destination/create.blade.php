@@ -27,7 +27,7 @@ Create Destination
                             <label for="">Ticket</label>
                             <select name="ticket_id" id="" class="form-control select2">
                                 @foreach ($tickets as $ticket)
-                                <option value="{{ $ticket->id }}">{{ $ticket->price }} - {{ $ticket->info }}</option>
+                                <option value="{{ $ticket->id }}">{{ \App\Utilities\Helpers::formatCurrency($ticket->price, 'Rp.') }} - {{ $ticket->info }}</option>
                                 @endforeach
                             </select>
                             @error('ticket_id')

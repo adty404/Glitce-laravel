@@ -29,7 +29,7 @@ class DestinationController extends Controller
             ->addIndexColumn()
             ->addColumn('aksi', 'pages.admin.destination.action')
             ->addColumn('ticket', function ($destination){
-                return $destination->ticket->price;
+                return \App\Utilities\Helpers::formatCurrency($destination->ticket->price, 'Rp.');
             })
             ->editColumn('photo', function ($destination) {
                 return $destination->photo ? '
