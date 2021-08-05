@@ -94,20 +94,20 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
                                 <span class="sidebar-normal"> Placed Order </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="{{ (request()->is('order/payment-slip*')) ? 'active' : '' }}">
+                            <a href="{{ route('admin.order.payment-slip') }}">
                                 <span class="sidebar-mini-icon">PS</span>
                                 <span class="sidebar-normal"> Payment Slip </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="{{ (request()->is('order/payment-verified*')) ? 'active' : '' }}">
+                            <a href="{{ route('admin.order.payment-verified') }}">
                                 <span class="sidebar-mini-icon">PV</span>
                                 <span class="sidebar-normal"> Payment Verified </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="{{ (request()->is('order/payment-decline*')) ? 'active' : '' }}">
+                            <a href="{{ route('admin.order.payment-decline') }}">
                                 <span class="sidebar-mini-icon">PNV</span>
                                 <span class="sidebar-normal"> Payment Not Verified </span>
                             </a>

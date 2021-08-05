@@ -56,4 +56,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Order
     Route::get('order/placed', 'Admin\OrderController@orderPlaced')->name('admin.order.placed');
+    Route::get('order/payment-slip', 'Admin\OrderController@paymentSlip')->name('admin.order.payment-slip');
+    Route::get('order/payment-verified', 'Admin\OrderController@paymentVerified')->name('admin.order.payment-verified');
+    Route::get('order/payment-decline', 'Admin\OrderController@paymentDecline')->name('admin.order.payment-decline');
+    
+    //Payment Slip process
+    Route::get('order/payment-slip/{id}', 'Admin\OrderController@approvePaymentSlip')->name('admin.order.payment-slip.approve');
+    Route::post('order/payment-slip/decline', 'Admin\OrderController@declinePaymentSlip')->name('admin.order.payment-slip.decline');
 });

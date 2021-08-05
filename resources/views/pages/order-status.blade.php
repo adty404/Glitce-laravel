@@ -428,8 +428,10 @@ Global Visit Choice Web
                         </span>
                         <div class="row no-margin no-padding">
                             <center>
-                                <img src="{{ Storage::url($order->payment_slip->image) }}" alt="Payment Slip"
-                                width="200" height="200">
+                                @if ($order->status_id == '2' || $order->status_id == '3')
+                                    <img src="{{ Storage::url($order->payment_slip->image) }}" alt="Payment Slip"
+                                    width="200" height="200"> 
+                                @endif
                             </center>
                         </div>
                     </div>
@@ -463,7 +465,11 @@ Global Visit Choice Web
                             </center>
 
                             <h6>*Click reset button to re-upload your payment slip.</h6>
-                            {{-- <h6>Reason : {{ $order->payment_slip->reason }} </h6> --}}
+
+                            @if ($order->status_id == '4')
+                                <h6>Reason : {{ $order->payment_slip->reason }} </h6>
+                            @endif
+                            
                             <br>
                             <h6>*Click reset button to re-upload your payment slip.</h6>
                         </div>

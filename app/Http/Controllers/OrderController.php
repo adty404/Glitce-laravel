@@ -53,7 +53,7 @@ class OrderController extends Controller
         $order->status_id = '1';
         $order->save();
 
-        Alert::success('Success', 'Order Created!');
+        Alert::success('Success', 'Payment Slip reseted!');
         return redirect()->route('order.check');
     }
 
@@ -69,5 +69,8 @@ class OrderController extends Controller
             'payment_slip_id' => $latest_ps['id'],
             'status_id' => '2'
         ]);
+
+        Alert::success('Success', 'Payment Slip Uploaded!');
+        return redirect()->route('order.check');
     }
 }

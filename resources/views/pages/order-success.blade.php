@@ -27,7 +27,7 @@ Global Visit Choice Web
 
 <div id="welcome">
     <div class="row" style="margin-bottom: 0;overflow: hidden;position: relative;">
-        <img src="./assets/img/decor.svg" alt="decorate" class="decorate">
+        <img src="/assets/img/decor.svg" alt="decorate" class="decorate">
         <div class="container">
             <div class="col s12" style="padding: 1em 0;">
                 <h4 class="text-main-color-2 center-align">Order Success</h4>

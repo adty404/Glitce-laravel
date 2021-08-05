@@ -17,7 +17,7 @@ class DashboardController extends Controller
         $total_order = Order::all()->count();
 
         if (request()->ajax()) {
-            $query = Order::query();
+            $query = Order::where('status_id', '1');
 
             return DataTables::of($query)
             ->addIndexColumn()
