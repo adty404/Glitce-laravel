@@ -15,11 +15,10 @@ Global Visit Choice Web
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h1 class="header col s12">Check Order</h1>
-                    <p>Check Your Ticket Before Go</p>
+                    <h1 class="header col s12">Order Status</h1>
                     <a href="#" class="breadcrumb_ white-text">Home</a>
                     <span class="breadcrumb_ text-main-color-3 font-bold"> <i class="material-icons"
-                            style="position: relative;top: .25em;">chevron_right</i> Check Order</span>
+                            style="position: relative;top: .25em;">chevron_right</i> Order Status</span>
                 </div>
             </div>
         </div>
@@ -429,8 +428,8 @@ Global Visit Choice Web
                         </span>
                         <div class="row no-margin no-padding">
                             <center>
-                                {{-- <img src="{{ Storage::url($order->payment_slip->image) }}" alt="Payment Slip"
-                                width="200" height="200"> --}}
+                                <img src="{{ Storage::url($order->payment_slip->image) }}" alt="Payment Slip"
+                                width="200" height="200">
                             </center>
                         </div>
                     </div>
@@ -507,13 +506,13 @@ Global Visit Choice Web
                         </span>
                         <div class="row">
                             <center>
-                                <form class="" action="{{ route('order.status.payment-slip') }}" method="post">
-                                    <h4 class="modal-title" style="color: red;">Upload Your Payment Slip</h4>
+                                <form class="" action="{{ route('order.status.payment-slip') }}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                    <h4 class="modal-title" style="color: red;">Upload Your Payment Slip</h4>
 
                                     <input class="" type="hidden" name="order_number"
                                         value="{{ $order->order_number }}">
-                                    <input class="" type="File" name="image"
+                                    <input class="" type="file" name="image"
                                         style="margin-bottom:100px; margin-top:50px;">
 
                                     <div class="modal-footer" style="padding: 0 2em;">

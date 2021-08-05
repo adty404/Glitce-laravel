@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
 use App\Order;
+use App\PaymentSlip;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -44,10 +45,29 @@ class OrderController extends Controller
     }
 
     public function resetPaymentSlip(Request $request){
+        
+        
+        PaymentSlip::where('id', $request->payment_slip_id)->delete();
+        
+        $order = Order::where('order_number', $request->order_number)->first();
+        $order->status_id = '1';
+        $order->save();
 
+        Alert::success('Success', 'Order Created!');
+        return redirect()->route('order.check');
     }
 
     public function paymentSlip(Request $request){
         
+        $data['image'] = $request->file('image')->store('assets/payment_slip', 'public');
+        $data['reason'] = '';
+
+        PaymentSlip::create($data);
+
+        $latest_ps = PaymentSlip::latest()->first();
+        Order::where('order_number', $request->order_number)->update([
+            'payment_slip_id' => $latest_ps['id'],
+            'status_id' => '2'
+        ]);
     }
 }
