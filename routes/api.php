@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/destination', 'API\DestinationController@index');
+Route::get('/ticket', 'API\TicketController@index');
+Route::get('/status', 'API\StatusController@index');
