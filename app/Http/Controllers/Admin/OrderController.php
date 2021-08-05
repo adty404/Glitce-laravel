@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
     public function orderPlaced(){
         if (request()->ajax()) {
-            $query = Order::query();
+            $query = Order::where('status_id', '1');
 
             return DataTables::of($query)
             ->addIndexColumn()
