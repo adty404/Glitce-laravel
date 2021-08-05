@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="green">
+<div class="sidebar" data-color="orange">
     <!--
 Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
 -->
