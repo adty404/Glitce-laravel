@@ -21,7 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/destination-front', 'DestinationController@index')->name('destination');
 
 //Detail of destination and also can buy ticket from here
-Route::get('/destination/{slug}', 'DestinationController@detail')->name('destination-detail');
+Route::get('/destination/detail/{slug}', 'DestinationController@detail')->name('destination-detail');
 
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/testimonial', 'TestimonialController@index')->name('testimonial');
