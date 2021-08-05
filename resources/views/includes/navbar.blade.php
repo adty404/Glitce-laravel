@@ -9,7 +9,7 @@
                 <li class="{{ request()->is('/') ? 'activated' : '' }}"><a href="{{ route('home') }}">Home</a></li>
                 <li class="{{ request()->is('destination-front*') ? 'activated' : '' }}"><a href="{{ route('destination') }}">Destination</a></li>
                 <li class="{{ request()->is('about') ? 'activated' : '' }}"><a href="{{ route('about') }}">About</a></li>
-                <li class="btn_nav"><a href="{{ route('check-order') }}" class="waves-effect waves-light btn-glitche">Check
+                <li class="btn_nav"><a href="{{ route('order.check') }}" class="waves-effect waves-light btn-glitche">Check
                         Order</a></li>
             </ul>
 
@@ -27,6 +27,6 @@
     <li><a href="{{ route('home') }}">Home</a></li>
     <li><a href="{{ route('destination') }}">Destination</a></li>
     <li><a href="{{ route('about') }}">About</a></li>
-    <li><a href="{{ route('check-order') }}">Check Order</a></li>
+    <li><a href="{{ route('order.check') }}">Check Order</a></li>
     <li><a href="{{ route('testimonial') }}">Testimonial</a></li>
 </ul>

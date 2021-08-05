@@ -12,7 +12,7 @@
                     <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('destination') }}">Destination</a></li>
                     <li><a href="{{ route('about') }}">About</a></li>
-                    <li><a href="{{ route('check-order') }}">Check Order</a></li>
+                    <li><a href="{{ route('order.check') }}">Check Order</a></li>
                     <li><a href="{{ route('testimonial') }}">Testimonials</a></li>
                 </ul>
             </div>

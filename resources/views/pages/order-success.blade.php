@@ -36,7 +36,7 @@ Global Visit Choice Web
                         @include('sweetalert::alert')
                         <h2 class="text-main-color-2 font-bold">#{{ $order_number }}</h2>
                         <p class="text-main-color-3">Order Success, save your <b>Order Number ({{ $order_number }}) </b> to check the status of your order and complete the payment! Go here 
-                            <a href="{{ route('check-order') }}" target="_blank" style="color:black; text-decoration: underline;;"> Check Order</a>
+                            <a href="{{ route('order.check') }}" target="_blank" style="color:black; text-decoration: underline;;"> Check Order</a>
                         </p>
                     </div>
                 </div>
